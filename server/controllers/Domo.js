@@ -42,16 +42,16 @@ const makeDomo = (req, res) => {
 };
 
 const getDomos = (request, response) => {
-  const req = request; 
+  const req = request;
   const res = response;
 
   return Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
-    if(err) {
+    if (err) {
       console.log(err);
-      return res.status(400).json({error: 'An error occurred'});
+      return res.status(400).json({ error: 'An error occurred' });
     }
 
-    return res.json({domos: docs});
+    return res.json({ domos: docs });
   });
 };
 
